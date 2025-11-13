@@ -19,7 +19,7 @@ public class PowerUpBase : CollectableItemBase
   Invoke(nameof(EndPowerUp), duration);
  }
 
- protected virtual void EndPowerUp()
+ protected virtual void EndPowerUp() 
  {
   Debug.Log("PowerUp End");
  }

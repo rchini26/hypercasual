@@ -15,6 +15,10 @@ public class PlayerController : Singleton<PlayerController>
     [Header("TextMeshPro")]
     public TextMeshPro uiTextPowerUp;
     
+    [Header("Coin Setup")]
+    public GameObject coinCollector;
+    
+    [Header("Player Setup")]
     public float speed = 1f;
     public string tagToCheckEnemy = "Enemy";
     public string tagToCheckEndLine = "Finish";
@@ -106,6 +110,11 @@ public class PlayerController : Singleton<PlayerController>
     public void ResetHeight(float animationDuration)
     {
         transform.DOMoveY(_startPosition.y, animationDuration);
+    }
+
+    public void ChangeCoinCollectorSize(float amount)
+    {
+        coinCollector.transform.localScale = Vector3.one * amount;
     }
     #endregion
 }

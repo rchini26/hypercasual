@@ -8,6 +8,8 @@ public class CollectableItemBase : MonoBehaviour
     public string compareTag = "Player";
     public ParticleSystem particlePrefab;
     
+    
+    
     [Header("Sounds")]
     public AudioSource audioSourcePrefab;
     

@@ -10,6 +10,7 @@ public class PowerUpCoins : PowerUpBase
    protected override void StartPowerUp()
    {
       base.StartPowerUp();
+      PlayerController.Instance.SetPowerUpText("Coin Magnet");
       PlayerController.Instance.ChangeCoinCollectorSize(sizeAmount);
    }
 

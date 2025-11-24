@@ -26,5 +26,6 @@ public class ColorManager : Singleton<ColorManager>
 
 public class ColorSetup
 {
+  public ColorManager.ArtType artType;
   public List<Color> colors;
 }

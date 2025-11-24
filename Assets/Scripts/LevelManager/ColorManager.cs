@@ -10,22 +10,18 @@ public class ColorManager : Singleton<ColorManager>
   
   public enum ArtType
   {
-    
+    Crystals,
+    Trees,
+    Drone
   }
 
   public void ChangeColorByType(ArtType artType)
   {
     var setup = colorSetups.Find(i => i.artType == artType);
-
+    
     for (int i = 0; i < materials.Count; i++)
     {
       materials[i].SetColor("_Color", setup.colors[i]);
     }
   }
-}
-
-public class ColorSetup
-{
-  public ColorManager.ArtType artType;
-  public List<Color> colors;
 }

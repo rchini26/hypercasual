@@ -29,6 +29,18 @@ public class LevelManager : MonoBehaviour
         }
         // Instantiate a level inside the Level Container everytime
         _currentLevel = Instantiate(levelPrefabs[_index], container.position, Quaternion.identity);
-        _currentLevel.transform.localPosition = Vector3.zero;   
+        _currentLevel.transform.localPosition = Vector3.zero;
+
+        var artComponent = _currentLevel.GetComponent<ColorSetup>();
+        if(artComponent != null)
+        {
+            ColorManager.Instance.ChangeColorByType(artComponent.artType);
+        }
     }
+}
+[System.Serializable]
+public class ColorSetup : MonoBehaviour
+{
+    public ColorManager.ArtType artType;
+    public List<Color> colors;
 }

@@ -1216,7 +1216,7 @@ MonoBehaviour:
   - {fileID: 8279147591528933722, guid: 7cb853cd321848f4097410ed106e54bb, type: 3}
   - {fileID: 8279147591528933722, guid: 6cb1c859b2cf061429be6c84d2687210, type: 3}
   - {fileID: 8279147591528933722, guid: bfcb44d52efe6c842916870969af6e7c, type: 3}
-  levelArtTypes: 0000000001000000
+  levelArtTypes: 000000000100000002000000
   _index: 0
 --- !u!1 &739276954
 GameObject:
@@ -2501,6 +2501,7 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 1233baba1c34dd44d8053204b3246ebc, type: 2}
   - {fileID: -2310514774154243031, guid: 7e73add8250c34a43931c90e0051994b, type: 3}
+  - {fileID: -2310514774154243031, guid: 7e73add8250c34a43931c90e0051994b, type: 3}
   colorSetups:
   - artType: 0
     colors:
@@ -2508,5 +2509,9 @@ MonoBehaviour:
     - {r: 0.16977029, g: 0.38679248, b: 0.093049124, a: 0}
   - artType: 1
     colors:
-    - {r: 0.12055002, g: 0.26438838, b: 0.5943396, a: 0}
+    - {r: 0.40530494, g: 0.12156863, b: 0.59607846, a: 0}
+    - {r: 0.5471698, g: 0.52557576, b: 0.090334624, a: 0}
+  - artType: 2
+    colors:
+    - {r: 0.4039216, g: 0.121568635, b: 0.59607846, a: 0}
     - {r: 0.5471698, g: 0.52557576, b: 0.090334624, a: 0}

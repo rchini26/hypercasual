@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     public Transform container;
     public GameObject player;
     public List<GameObject> levelPrefabs;
+    public List<ColorManager.ArtType> levelArtTypes;
 // Make a list of levels as prefabs 
     [SerializeField] private int _index;
     private GameObject _currentLevel;
@@ -38,17 +39,6 @@ public class LevelManager : MonoBehaviour
             player.transform.position = container.position;
             player.transform.rotation = container.rotation;
         }
-        
-        var artComponent = _currentLevel.GetComponent<ColorSetup>();
-        if(artComponent != null)
-        {
-            ColorManager.Instance.ChangeColorByType(artComponent.artType);
-        }
+        ColorManager.Instance.ChangeColorByType(levelArtTypes[_index]);
     }
-}
-[System.Serializable]
-public class ColorSetup : MonoBehaviour
-{
-    public ColorManager.ArtType artType;
-    public List<Color> colors;
 }

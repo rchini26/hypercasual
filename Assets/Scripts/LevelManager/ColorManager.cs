@@ -10,9 +10,9 @@ public class ColorManager : Singleton<ColorManager>
   
   public enum ArtType
   {
-    Crystals,
-    Trees,
-    Drone
+    Drone,
+    Crystal,
+    Trees
   }
 
   public void ChangeColorByType(ArtType artType)
@@ -24,4 +24,10 @@ public class ColorManager : Singleton<ColorManager>
       materials[i].SetColor("_Color", setup.colors[i]);
     }
   }
+}
+[System.Serializable]
+public class ColorSetup 
+{
+  public ColorManager.ArtType artType;
+  public List<Color> colors;
 }

@@ -5,16 +5,18 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public Transform container;
+    public GameObject player;
     public List<GameObject> levelPrefabs;
 // Make a list of levels as prefabs 
     [SerializeField] private int _index;
     private GameObject _currentLevel;
     void Awake()
     {
-        SpawnNextLevel();
+        _currentLevel = Instantiate(levelPrefabs[_index], container.position, Quaternion.identity);
+        _currentLevel.transform.localPosition = Vector3.zero;
     }
     
-    void SpawnNextLevel()
+    public void SpawnNextLevel()
     {
         // Check if there is a level
         if (_currentLevel != null)
@@ -31,6 +33,12 @@ public class LevelManager : MonoBehaviour
         _currentLevel = Instantiate(levelPrefabs[_index], container.position, Quaternion.identity);
         _currentLevel.transform.localPosition = Vector3.zero;
 
+        if (player != null)
+        {
+            player.transform.position = container.position;
+            player.transform.rotation = container.rotation;
+        }
+        
         var artComponent = _currentLevel.GetComponent<ColorSetup>();
         if(artComponent != null)
         {

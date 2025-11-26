@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour
     {
         _currentLevel = Instantiate(levelPrefabs[_index], container.position, Quaternion.identity);
         _currentLevel.transform.localPosition = Vector3.zero;
+        CoinsAnimationManager.Instance.StartAnimation();
     }
     
     public void SpawnNextLevel()
@@ -23,6 +24,8 @@ public class LevelManager : MonoBehaviour
         if (_currentLevel != null)
         {
             Destroy(_currentLevel);
+            // Destroy old coins list
+            CoinsAnimationManager.Instance.items.Clear();
             _index++;
             if (_index >= levelPrefabs.Count)
             {
@@ -39,6 +42,8 @@ public class LevelManager : MonoBehaviour
             player.transform.position = container.position;
             player.transform.rotation = container.rotation;
         }
+        
         ColorManager.Instance.ChangeColorByType(levelArtTypes[_index]);
+        CoinsAnimationManager.Instance.StartAnimation();
     }
 }

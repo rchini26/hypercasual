@@ -19,7 +19,7 @@ public class ColorManager : Singleton<ColorManager>
   {
     var setup = colorSetups.Find(i => i.artType == artType);
     
-    for (int i = 0; i < materials.Count; i++)
+    for (int i = 0; i < Mathf.Min(materials.Count, setup.colors.Count); i++)
     {
       materials[i].SetColor("_Color", setup.colors[i]);
     }

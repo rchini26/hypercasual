@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
     {
         _currentLevel = Instantiate(levelPrefabs[_index], container.position, Quaternion.identity);
         _currentLevel.transform.localPosition = Vector3.zero;
-        CoinsAnimationManager.Instance.StartAnimation();
+        StartCoroutine(PlayCoinsAnimationNextFrame());
     }
     
     public void SpawnNextLevel()
@@ -44,6 +44,12 @@ public class LevelManager : MonoBehaviour
         }
         
         ColorManager.Instance.ChangeColorByType(levelArtTypes[_index]);
+        CoinsAnimationManager.Instance.StartAnimation();
+    }
+
+    IEnumerator PlayCoinsAnimationNextFrame()
+    {
+        yield return null;
         CoinsAnimationManager.Instance.StartAnimation();
     }
 }

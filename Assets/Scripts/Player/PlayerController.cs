@@ -20,6 +20,8 @@ public class PlayerController : Singleton<PlayerController>
     
     [Header("Animation Setup")]
     public AnimatorManager animatorManager;
+
+    [SerializeField] BounceHelper _bounceHelper;
     
     [Header("Player Setup")]
     public float speed = 1f;
@@ -43,11 +45,11 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (!_canRun) return;
         
-        var _pos = target.position;
-        _pos.y = transform.position.y;
-        _pos.z = transform.position.z;
+        var pos = target.position;
+        pos.y = transform.position.y;
+        pos.z = transform.position.z;
         
-        transform.position = Vector3.Lerp(transform.position, _pos, lerpSpeed * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, pos, lerpSpeed * Time.deltaTime);
         transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
     }
 
@@ -87,6 +89,11 @@ public class PlayerController : Singleton<PlayerController>
     {
         _canRun = true;
         animatorManager.Play(AnimatorManager.AnimationType.Run, _baseSpeedToAnimation);
+    }
+
+    public void Bounce()
+    {
+        _bounceHelper.Bounce();
     }
     
     #region POWER UPS

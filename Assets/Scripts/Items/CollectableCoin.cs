@@ -20,6 +20,7 @@ public class CollectableCoin : CollectableItemBase
       base.OnCollect();
       collider.enabled = true;
       collect = true;
+      PlayerController.Instance.Bounce();
    }
 
    protected override void Collect()

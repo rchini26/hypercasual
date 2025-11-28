@@ -29,6 +29,9 @@ public class PlayerController : Singleton<PlayerController>
     public string tagToCheckEndLine = "Finish";
     public GameObject endScreen;
     public bool invencible;
+
+    [Header("Limits")] 
+    public float limit = 3;
     // privates
     private bool _canRun;
     private float _currentSpeed;
@@ -50,7 +53,8 @@ public class PlayerController : Singleton<PlayerController>
         var pos = target.position;
         pos.y = transform.position.y;
         pos.z = transform.position.z;
-        
+        pos.x = Mathf.Clamp(pos.x, -limit, limit);
+            
         transform.position = Vector3.Lerp(transform.position, pos, lerpSpeed * Time.deltaTime);
         transform.Translate(transform.forward * _currentSpeed * Time.deltaTime);
     }
